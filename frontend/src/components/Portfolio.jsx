@@ -28,7 +28,7 @@ const Portfolio = () => {
   }, []);
 
   return (
-    <div className="relative bg-[#0a0a0b] text-zinc-100">
+    <div className="relative bg-[#05080d] text-zinc-100">
       <Navbar />
       <main>
         <Hero />

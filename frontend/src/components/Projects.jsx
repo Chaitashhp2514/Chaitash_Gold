@@ -35,7 +35,7 @@ const Projects = () => {
                       onClick={() => setActive(p.id)}
                       className={`w-full text-left p-5 rounded-2xl border transition-all duration-300 ${
                         isActive
-                          ? "bg-[#111113] border-amber-400/40 shadow-[0_10px_40px_-20px_rgba(245,158,11,0.35)]"
+                          ? "bg-[#0c1320] border-cyan-400/40 shadow-[0_10px_40px_-20px_rgba(34,211,238,0.35)]"
                           : "bg-white/[0.015] border-white/5 hover:border-white/15"
                       }`}
                     >
@@ -43,7 +43,7 @@ const Projects = () => {
                         <div className="flex items-center gap-3">
                           <span
                             className={`mono text-xs ${
-                              isActive ? "text-amber-400" : "text-zinc-500"
+                              isActive ? "text-cyan-400" : "text-zinc-500"
                             }`}
                           >
                             0{i + 1}
@@ -59,7 +59,7 @@ const Projects = () => {
                         <ChevronRight
                           className={`w-4 h-4 transition-transform ${
                             isActive
-                              ? "text-amber-400 translate-x-1"
+                              ? "text-cyan-400 translate-x-1"
                               : "text-zinc-600"
                           }`}
                         />
@@ -80,11 +80,11 @@ const Projects = () => {
           <div className="lg:col-span-7 reveal">
             <div className="relative rounded-3xl border border-white/5 bg-gradient-to-b from-white/[0.04] to-white/[0.01] overflow-hidden">
               {/* Decorative header */}
-              <div className="relative h-48 md:h-56 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.25),transparent_60%)] border-b border-white/5">
+              <div className="relative h-48 md:h-56 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.25),transparent_60%)] border-b border-white/5">
                 <div className="absolute inset-0 dot-pattern opacity-40" />
                 <div className="relative h-full flex items-end p-6">
                   <div>
-                    <div className="mono text-[11px] tracking-widest uppercase text-amber-400">
+                    <div className="mono text-[11px] tracking-widest uppercase text-cyan-400">
                       {current.type} · {current.year}
                     </div>
                     <h3 className="mt-2 text-2xl md:text-3xl font-semibold text-zinc-50">
@@ -105,7 +105,7 @@ const Projects = () => {
                       key={h}
                       className="flex items-start gap-3 text-zinc-300"
                     >
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0" />
                       <span>{h}</span>
                     </li>
                   ))}
@@ -116,7 +116,7 @@ const Projects = () => {
                     <Badge
                       key={s}
                       variant="outline"
-                      className="border-white/10 bg-white/[0.03] text-zinc-300 hover:text-amber-300 hover:border-amber-400/40"
+                      className="border-white/10 bg-white/[0.03] text-zinc-300 hover:text-cyan-300 hover:border-cyan-400/40"
                     >
                       {s}
                     </Badge>
@@ -126,7 +126,7 @@ const Projects = () => {
                 <div className="mt-8 flex items-center gap-3">
                   <button
                     onClick={() => alert("Project link coming soon.")}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-400 hover:bg-amber-300 text-zinc-950 text-sm font-medium transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-zinc-950 text-sm font-medium transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live demo

@@ -16,7 +16,7 @@ const Experience = () => {
           {/* Experience column */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-cyan-400/10 text-cyan-400 flex items-center justify-center">
                 <Briefcase className="w-4 h-4" />
               </div>
               <h3 className="text-xl font-semibold text-zinc-100">Experience</h3>
@@ -25,14 +25,14 @@ const Experience = () => {
             <ol className="relative border-l border-white/10 pl-6 space-y-8">
               {experience.map((e, i) => (
                 <li key={i} className="relative">
-                  <span className="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-amber-400 ring-4 ring-amber-400/20" />
+                  <span className="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-cyan-400 ring-4 ring-cyan-400/20" />
                   <div className="mono text-[11px] uppercase tracking-widest text-zinc-500">
                     {e.period} · {e.location}
                   </div>
                   <h4 className="mt-1 text-lg text-zinc-50 font-semibold">
                     {e.role}
                   </h4>
-                  <div className="text-amber-300 text-sm">{e.company}</div>
+                  <div className="text-cyan-300 text-sm">{e.company}</div>
                   <ul className="mt-3 space-y-2">
                     {e.bullets.map((b) => (
                       <li
@@ -49,7 +49,7 @@ const Experience = () => {
             </ol>
 
             <div className="mt-10 flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-cyan-400/10 text-cyan-400 flex items-center justify-center">
                 <Trophy className="w-4 h-4" />
               </div>
               <h3 className="text-xl font-semibold text-zinc-100">
@@ -60,7 +60,7 @@ const Experience = () => {
               {achievements.map((a) => (
                 <div
                   key={a.title}
-                  className="p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-amber-400/30 transition-colors"
+                  className="p-5 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-cyan-400/30 transition-colors"
                 >
                   <div className="text-zinc-100 font-medium">{a.title}</div>
                   <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
@@ -74,7 +74,7 @@ const Experience = () => {
           {/* Education column */}
           <div className="reveal">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-9 h-9 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-lg bg-cyan-400/10 text-cyan-400 flex items-center justify-center">
                 <GraduationCap className="w-4 h-4" />
               </div>
               <h3 className="text-xl font-semibold text-zinc-100">Education</h3>
@@ -84,11 +84,11 @@ const Experience = () => {
               {education.map((ed) => (
                 <div
                   key={ed.degree}
-                  className="relative p-6 rounded-2xl border border-white/5 bg-[#0f0f11] hover:border-amber-400/30 transition-colors"
+                  className="relative p-6 rounded-2xl border border-white/5 bg-[#0a0f17] hover:border-cyan-400/30 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <div className="mono text-[11px] uppercase tracking-widest text-amber-400">
+                      <div className="mono text-[11px] uppercase tracking-widest text-cyan-400">
                         {ed.period}
                       </div>
                       <h4 className="mt-1 text-zinc-50 font-semibold text-lg">
@@ -102,7 +102,7 @@ const Experience = () => {
                     <span
                       className={`mono text-[11px] uppercase tracking-widest px-2 py-1 rounded-full border ${
                         ed.status === "Pursuing"
-                          ? "border-amber-400/40 text-amber-300 bg-amber-400/5"
+                          ? "border-cyan-400/40 text-cyan-300 bg-cyan-400/5"
                           : "border-white/10 text-zinc-400 bg-white/[0.02]"
                       }`}
                     >
@@ -110,7 +110,7 @@ const Experience = () => {
                     </span>
                   </div>
                   <div className="mt-4 inline-flex items-center gap-2 text-sm text-zinc-300">
-                    <span className="mono text-amber-400">◆</span>
+                    <span className="mono text-cyan-400">◆</span>
                     {ed.score}
                   </div>
                 </div>

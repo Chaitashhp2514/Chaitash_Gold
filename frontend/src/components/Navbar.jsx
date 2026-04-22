@@ -35,7 +35,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
         scrolled
-          ? "backdrop-blur-xl bg-[#0a0a0b]/70 border-b border-white/5"
+          ? "backdrop-blur-xl bg-[#05080d]/70 border-b border-white/5"
           : "bg-transparent"
       }`}
     >
@@ -45,13 +45,13 @@ const Navbar = () => {
             onClick={() => go("home")}
             className="group flex items-center gap-2 text-zinc-100"
           >
-            <span className="mono text-amber-400 text-sm">{"<"}</span>
+            <span className="mono text-cyan-400 text-sm">{"<"}</span>
             <span className="font-semibold tracking-tight">
               {profile.firstName}
-              <span className="text-amber-400">.</span>
+              <span className="text-cyan-400">.</span>
               {profile.lastName.toLowerCase()}
             </span>
-            <span className="mono text-amber-400 text-sm">{" />"}</span>
+            <span className="mono text-cyan-400 text-sm">{" />"}</span>
           </button>
 
           <ul className="hidden md:flex items-center gap-1">
@@ -61,7 +61,7 @@ const Navbar = () => {
                   onClick={() => go(l.id)}
                   className={`relative px-4 py-2 text-sm transition-colors duration-200 ${
                     active === l.id
-                      ? "text-amber-400"
+                      ? "text-cyan-400"
                       : "text-zinc-400 hover:text-zinc-100"
                   }`}
                 >
@@ -70,7 +70,7 @@ const Navbar = () => {
                   </span>
                   {l.label}
                   {active === l.id && (
-                    <span className="absolute left-3 right-3 -bottom-0.5 h-px bg-amber-400" />
+                    <span className="absolute left-3 right-3 -bottom-0.5 h-px bg-cyan-400" />
                   )}
                 </button>
               </li>
@@ -81,7 +81,7 @@ const Navbar = () => {
             <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
               <Button
                 size="sm"
-                className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-medium"
+                className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Résumé
@@ -107,7 +107,7 @@ const Navbar = () => {
                     onClick={() => go(l.id)}
                     className={`w-full text-left px-3 py-3 rounded-md text-sm ${
                       active === l.id
-                        ? "bg-white/5 text-amber-400"
+                        ? "bg-white/5 text-cyan-400"
                         : "text-zinc-300 hover:bg-white/5"
                     }`}
                   >
@@ -120,7 +120,7 @@ const Navbar = () => {
               ))}
               <li className="mt-2">
                 <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
-                  <Button className="w-full bg-amber-400 hover:bg-amber-300 text-zinc-950 font-medium">
+                  <Button className="w-full bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium">
                     <Download className="w-4 h-4 mr-2" />
                     Download Résumé
                   </Button>

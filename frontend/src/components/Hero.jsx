@@ -33,9 +33,9 @@ const Hero = () => {
     >
       {/* Background layers */}
       <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-amber-500/10 blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#0a0a0b_85%)]" />
+      <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-emerald-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#05080d_85%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-16">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -54,10 +54,10 @@ const Hero = () => {
             <h1 className="mt-6 text-[44px] leading-[1.04] sm:text-6xl lg:text-[72px] font-semibold text-zinc-50">
               Hi, I’m{" "}
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="neon-text bg-gradient-to-r from-cyan-300 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   {profile.firstName}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-[6px] bg-amber-400/20 blur-md" />
+                <span className="absolute -bottom-2 left-0 right-0 h-[6px] bg-cyan-400/25 blur-md" />
               </span>
               <br />
               a {profile.title}.
@@ -73,7 +73,7 @@ const Hero = () => {
               <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
                 <Button
                   size="lg"
-                  className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-semibold h-12 px-6 rounded-full"
+                  className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold h-12 px-6 rounded-full"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download Résumé
@@ -83,7 +83,7 @@ const Hero = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="h-12 px-6 rounded-full border-white/15 bg-white/[0.02] text-zinc-100 hover:bg-white/[0.06] hover:text-amber-300"
+                  className="h-12 px-6 rounded-full border-white/15 bg-white/[0.02] text-zinc-100 hover:bg-white/[0.06] hover:text-cyan-300"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Get in touch
@@ -93,7 +93,7 @@ const Hero = () => {
 
             <div className="mt-8 flex items-center gap-5 text-zinc-400">
               <div className="flex items-center gap-2 text-sm">
-                <MapPin className="w-4 h-4 text-amber-400" />
+                <MapPin className="w-4 h-4 text-cyan-400" />
                 {profile.location}
               </div>
               <span className="w-px h-4 bg-white/10" />
@@ -141,7 +141,7 @@ const Hero = () => {
               <div className="glow-ring" />
               <div
                 ref={photoRef}
-                className="relative w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] lg:w-[380px] lg:h-[500px] rounded-[28px] overflow-hidden border border-white/10 shadow-[0_30px_80px_-20px_rgba(245,158,11,0.35)] transition-transform duration-200 ease-out"
+                className="scanlines relative w-[260px] h-[340px] sm:w-[300px] sm:h-[400px] lg:w-[380px] lg:h-[500px] rounded-[28px] overflow-hidden border border-cyan-400/25 shadow-[0_30px_80px_-20px_rgba(34,211,238,0.45)] transition-transform duration-200 ease-out"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <img
@@ -150,26 +150,26 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   draggable={false}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#05080d] via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                   <div className="mono text-[11px] tracking-widest uppercase text-zinc-300/90">
                     {profile.firstName} · {new Date().getFullYear()}
                   </div>
-                  <div className="mono text-[11px] text-amber-300">v1.0</div>
+                  <div className="mono text-[11px] text-cyan-300">v1.0</div>
                 </div>
               </div>
 
               {/* Floating tag */}
-              <div className="absolute -left-6 top-10 hidden md:block rotate-[-8deg] px-3 py-2 rounded-lg bg-[#111113] border border-white/10 shadow-xl">
-                <div className="mono text-[10px] tracking-widest uppercase text-amber-400">
+              <div className="absolute -left-6 top-10 hidden md:block rotate-[-8deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-white/10 shadow-xl">
+                <div className="mono text-[10px] tracking-widest uppercase text-cyan-400">
                   engineer.exe
                 </div>
                 <div className="text-xs text-zinc-300 mt-0.5">
                   status: running
                 </div>
               </div>
-              <div className="absolute -right-4 bottom-14 hidden md:block rotate-[6deg] px-3 py-2 rounded-lg bg-[#111113] border border-white/10 shadow-xl">
-                <div className="mono text-[10px] tracking-widest uppercase text-amber-400">
+              <div className="absolute -right-4 bottom-14 hidden md:block rotate-[6deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-white/10 shadow-xl">
+                <div className="mono text-[10px] tracking-widest uppercase text-cyan-400">
                   stack
                 </div>
                 <div className="text-xs text-zinc-300 mt-0.5">
@@ -188,9 +188,9 @@ const Hero = () => {
             {[...toolbelt, ...toolbelt].map((t, i) => (
               <span
                 key={i}
-                className="mono text-xs tracking-widest uppercase text-zinc-500 hover:text-amber-400 transition-colors"
+                className="mono text-xs tracking-widest uppercase text-zinc-500 hover:text-cyan-400 transition-colors"
               >
-                <span className="text-amber-400/60 mr-2">◆</span>
+                <span className="text-cyan-400/60 mr-2">◆</span>
                 {t}
               </span>
             ))}
@@ -201,7 +201,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <button
         onClick={scrollToAbout}
-        className="absolute left-1/2 -translate-x-1/2 bottom-6 hidden md:flex items-center gap-2 text-zinc-500 hover:text-amber-400 transition-colors"
+        className="absolute left-1/2 -translate-x-1/2 bottom-6 hidden md:flex items-center gap-2 text-zinc-500 hover:text-cyan-400 transition-colors"
         aria-label="Scroll to about section"
       >
         <span className="mono text-[11px] uppercase tracking-widest">

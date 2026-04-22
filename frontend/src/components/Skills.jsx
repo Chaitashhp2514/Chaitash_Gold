@@ -32,7 +32,7 @@ const Bar = ({ name, level }) => {
       </div>
       <div className="mt-2 h-1.5 rounded-full bg-white/5 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-amber-300 to-orange-500 transition-[width] duration-[1200ms] ease-out"
+          className="h-full bg-gradient-to-r from-cyan-300 to-emerald-400 transition-[width] duration-[1200ms] ease-out"
           style={{ width: `${shown}%` }}
         />
       </div>
@@ -65,7 +65,7 @@ const Skills = () => {
                 <TabsTrigger
                   key={g.category}
                   value={g.category}
-                  className="data-[state=active]:bg-amber-400 data-[state=active]:text-zinc-950 bg-white/[0.03] text-zinc-300 border border-white/10 rounded-full px-4 py-2 text-sm hover:text-zinc-50"
+                  className="data-[state=active]:bg-cyan-400 data-[state=active]:text-zinc-950 bg-white/[0.03] text-zinc-300 border border-white/10 rounded-full px-4 py-2 text-sm hover:text-zinc-50"
                 >
                   {g.category}
                 </TabsTrigger>

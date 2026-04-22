@@ -52,7 +52,7 @@ const About = () => {
               {softSkills.map((s) => (
                 <span
                   key={s}
-                  className="px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-zinc-300 text-sm hover:border-amber-400/40 hover:text-amber-300 transition-colors"
+                  className="px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-zinc-300 text-sm hover:border-cyan-400/40 hover:text-cyan-300 transition-colors"
                 >
                   {s}
                 </span>
@@ -60,7 +60,7 @@ const About = () => {
             </div>
 
             <div className="mt-10 p-5 rounded-2xl border border-white/5 bg-white/[0.02]">
-              <div className="flex items-center gap-2 mono text-xs uppercase tracking-widest text-amber-400">
+              <div className="flex items-center gap-2 mono text-xs uppercase tracking-widest text-cyan-400">
                 <Sparkles className="w-4 h-4" /> Current focus
               </div>
               <p className="mt-3 text-zinc-300">
@@ -75,9 +75,9 @@ const About = () => {
             {focuses.map((f) => (
               <div
                 key={f.title}
-                className="reveal group relative p-5 rounded-2xl border border-white/5 bg-[#0f0f11] hover:border-amber-400/30 transition-colors"
+                className="reveal group relative p-5 rounded-2xl border border-white/5 bg-[#0a0f17] hover:border-cyan-400/30 transition-colors"
               >
-                <div className="w-10 h-10 rounded-lg bg-amber-400/10 text-amber-400 flex items-center justify-center group-hover:bg-amber-400 group-hover:text-zinc-950 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-cyan-400/10 text-cyan-400 flex items-center justify-center group-hover:bg-cyan-400 group-hover:text-zinc-950 transition-colors">
                   <f.icon className="w-5 h-5" />
                 </div>
                 <h3 className="mt-4 text-zinc-50 font-semibold">{f.title}</h3>

@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: #0a0a0b;
+  background: #05080d;
   font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,22 +30,22 @@ code, .mono {
     --card-foreground: 0 0% 96%;
     --popover: 240 6% 6%;
     --popover-foreground: 0 0% 96%;
-    --primary: 38 92% 50%;
-    --primary-foreground: 20 10% 8%;
+    --primary: 187 86% 53%;
+    --primary-foreground: 200 20% 6%;
     --secondary: 240 4% 12%;
     --secondary-foreground: 0 0% 96%;
     --muted: 240 4% 12%;
     --muted-foreground: 240 4% 62%;
-    --accent: 38 92% 50%;
-    --accent-foreground: 20 10% 8%;
-    --destructive: 0 74% 52%;
+    --accent: 152 76% 55%;
+    --accent-foreground: 200 20% 6%;
+    --destructive: 348 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 4% 14%;
     --input: 240 4% 14%;
-    --ring: 38 92% 50%;
-    --chart-1: 38 92% 50%;
-    --chart-2: 180 70% 50%;
-    --chart-3: 24 90% 55%;
+    --ring: 187 86% 53%;
+    --chart-1: 187 86% 53%;
+    --chart-2: 152 76% 55%;
+    --chart-3: 325 90% 66%;
     --chart-4: 210 70% 55%;
     --chart-5: 0 0% 80%;
     --radius: 0.75rem;

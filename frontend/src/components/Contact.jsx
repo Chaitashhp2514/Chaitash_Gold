@@ -47,16 +47,16 @@ const Contact = () => {
         <div className="mt-12 grid lg:grid-cols-12 gap-10">
           {/* Info card */}
           <div className="lg:col-span-5 reveal">
-            <div className="relative p-6 md:p-8 rounded-3xl border border-white/5 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.12),transparent_60%)] overflow-hidden">
+            <div className="relative p-6 md:p-8 rounded-3xl border border-white/5 bg-[radial-gradient(ellipse_at_top_left,rgba(34,211,238,0.12),transparent_60%)] overflow-hidden">
               <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
               <div className="relative">
-                <div className="mono text-[11px] uppercase tracking-widest text-amber-400">
+                <div className="mono text-[11px] uppercase tracking-widest text-cyan-400">
                   Direct contacts
                 </div>
 
                 <ul className="mt-6 space-y-5">
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-cyan-400">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div>
@@ -65,14 +65,14 @@ const Contact = () => {
                       </div>
                       <a
                         href={`mailto:${profile.email}`}
-                        className="text-zinc-100 hover:text-amber-300"
+                        className="text-zinc-100 hover:text-cyan-300"
                       >
                         {profile.email}
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-cyan-400">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
@@ -81,14 +81,14 @@ const Contact = () => {
                       </div>
                       <a
                         href={`tel:${profile.phone.replace(/\s/g, "")}`}
-                        className="text-zinc-100 hover:text-amber-300"
+                        className="text-zinc-100 hover:text-cyan-300"
                       >
                         {profile.phone}
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-cyan-400">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
@@ -106,7 +106,7 @@ const Contact = () => {
                       href={profile.social.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-cyan-300 hover:border-cyan-400/40 transition-colors"
                       aria-label="GitHub"
                     >
                       <Github className="w-4 h-4" />
@@ -115,7 +115,7 @@ const Contact = () => {
                       href={profile.social.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-cyan-300 hover:border-cyan-400/40 transition-colors"
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="w-4 h-4" />
@@ -124,7 +124,7 @@ const Contact = () => {
                       href={profile.social.twitter}
                       target="_blank"
                       rel="noreferrer"
-                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-cyan-300 hover:border-cyan-400/40 transition-colors"
                       aria-label="Twitter"
                     >
                       <Twitter className="w-4 h-4" />
@@ -140,7 +140,7 @@ const Contact = () => {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="border-amber-400/40 bg-amber-400/5 text-amber-300 hover:bg-amber-400 hover:text-zinc-950"
+                      className="border-cyan-400/40 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400 hover:text-zinc-950"
                     >
                       <Download className="w-4 h-4 mr-2" />
                       Résumé
@@ -165,7 +165,7 @@ const Contact = () => {
                   value={form.name}
                   onChange={handle("name")}
                   placeholder="Jane Doe"
-                  className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100 h-11"
+                  className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100 h-11"
                 />
               </div>
               <div>
@@ -177,7 +177,7 @@ const Contact = () => {
                   value={form.email}
                   onChange={handle("email")}
                   placeholder="jane@company.com"
-                  className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100 h-11"
+                  className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100 h-11"
                 />
               </div>
             </div>
@@ -190,7 +190,7 @@ const Contact = () => {
                 onChange={handle("message")}
                 placeholder="Tell me a little about what you’re building…"
                 rows={6}
-                className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100"
+                className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100"
               />
             </div>
 
@@ -201,7 +201,7 @@ const Contact = () => {
               <Button
                 type="submit"
                 disabled={sending}
-                className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-semibold h-11 px-6 rounded-full"
+                className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold h-11 px-6 rounded-full"
               >
                 <Send className="w-4 h-4 mr-2" />
                 {sending ? "Sending…" : "Send message"}
