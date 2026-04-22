@@ -33,8 +33,10 @@ const Hero = () => {
     >
       {/* Background layers */}
       <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-cyan-500/10 blur-3xl" />
+      <div className="scan-line" />
+      <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-cyan-500/15 blur-3xl" />
       <div className="absolute -bottom-40 -right-40 w-[520px] h-[520px] rounded-full bg-emerald-400/10 blur-3xl" />
+      <div className="absolute top-20 right-1/4 w-[300px] h-[300px] rounded-full bg-fuchsia-500/10 blur-3xl" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#05080d_85%)]" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-16">
@@ -54,13 +56,17 @@ const Hero = () => {
             <h1 className="mt-6 text-[44px] leading-[1.04] sm:text-6xl lg:text-[72px] font-semibold text-zinc-50">
               Hi, I’m{" "}
               <span className="relative inline-block">
-                <span className="neon-text bg-gradient-to-r from-cyan-300 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                <span
+                  data-text={profile.firstName}
+                  className="glitch neon-text bg-gradient-to-r from-cyan-300 via-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+                >
                   {profile.firstName}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-[6px] bg-cyan-400/25 blur-md" />
+                <span className="absolute -bottom-2 left-0 right-0 h-[6px] bg-cyan-400/30 blur-md" />
               </span>
               <br />
               a {profile.title}.
+              <span className="caret" aria-hidden="true" />
             </h1>
 
             <p className="mt-6 max-w-xl text-zinc-400 text-base md:text-lg leading-relaxed">
@@ -160,16 +166,16 @@ const Hero = () => {
               </div>
 
               {/* Floating tag */}
-              <div className="absolute -left-6 top-10 hidden md:block rotate-[-8deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-white/10 shadow-xl">
-                <div className="mono text-[10px] tracking-widest uppercase text-cyan-400">
+              <div className="absolute -left-6 top-10 hidden md:block rotate-[-8deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-cyan-400/25 shadow-[0_0_24px_-6px_rgba(34,211,238,0.55)]">
+                <div className="mono text-[10px] tracking-widest uppercase text-cyan-300">
                   engineer.exe
                 </div>
                 <div className="text-xs text-zinc-300 mt-0.5">
-                  status: running
+                  status: <span className="magenta-pop">running</span>
                 </div>
               </div>
-              <div className="absolute -right-4 bottom-14 hidden md:block rotate-[6deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-white/10 shadow-xl">
-                <div className="mono text-[10px] tracking-widest uppercase text-cyan-400">
+              <div className="absolute -right-4 bottom-14 hidden md:block rotate-[6deg] px-3 py-2 rounded-lg bg-[#0c1320] border border-emerald-400/30 shadow-[0_0_24px_-6px_rgba(74,222,128,0.45)]">
+                <div className="mono text-[10px] tracking-widest uppercase text-emerald-300">
                   stack
                 </div>
                 <div className="text-xs text-zinc-300 mt-0.5">

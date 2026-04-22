@@ -59,10 +59,18 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               download
-              className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-cyan-200"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-cyan-200 neon-link"
             >
               <Download className="w-4 h-4" />
               Download résumé (PDF)
+            </a>
+            <a
+              href="/chaitash-portfolio.zip"
+              download
+              className="mt-2 inline-flex items-center gap-2 text-xs mono tracking-widest uppercase text-zinc-500 hover:text-cyan-300 transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              Source code (.zip)
             </a>
           </div>
         </div>
