@@ -1,0 +1,217 @@
+import { useState } from "react";
+import { Mail, MapPin, Phone, Send, Download, Github, Linkedin, Twitter } from "lucide-react";
+import { profile } from "../mock/mock";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { toast } from "sonner";
+
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+
+  const handle = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      toast.error("Please fill in every field before sending.");
+      return;
+    }
+    setSending(true);
+    // Frontend-only: persist in localStorage as a teaser for backend wiring.
+    setTimeout(() => {
+      const store = JSON.parse(localStorage.getItem("messages") || "[]");
+      store.push({ ...form, at: new Date().toISOString() });
+      localStorage.setItem("messages", JSON.stringify(store));
+      setSending(false);
+      setForm({ name: "", email: "", message: "" });
+      toast.success("Message saved. I’ll get back to you soon!");
+    }, 650);
+  };
+
+  return (
+    <section id="contact" className="relative py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="reveal">
+          <span className="section-kicker">05 — Contact</span>
+          <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-zinc-50 max-w-3xl">
+            Let’s build something worth shipping.
+          </h2>
+          <p className="mt-4 text-zinc-400 max-w-2xl">
+            Have a role, a freelance brief, or just want to nerd out over a
+            project idea? My inbox is open — I reply within a day or two.
+          </p>
+        </div>
+
+        <div className="mt-12 grid lg:grid-cols-12 gap-10">
+          {/* Info card */}
+          <div className="lg:col-span-5 reveal">
+            <div className="relative p-6 md:p-8 rounded-3xl border border-white/5 bg-[radial-gradient(ellipse_at_top_left,rgba(245,158,11,0.12),transparent_60%)] overflow-hidden">
+              <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none" />
+              <div className="relative">
+                <div className="mono text-[11px] uppercase tracking-widest text-amber-400">
+                  Direct contacts
+                </div>
+
+                <ul className="mt-6 space-y-5">
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs mono uppercase tracking-widest text-zinc-500">
+                        Email
+                      </div>
+                      <a
+                        href={`mailto:${profile.email}`}
+                        className="text-zinc-100 hover:text-amber-300"
+                      >
+                        {profile.email}
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs mono uppercase tracking-widest text-zinc-500">
+                        Phone
+                      </div>
+                      <a
+                        href={`tel:${profile.phone.replace(/\s/g, "")}`}
+                        className="text-zinc-100 hover:text-amber-300"
+                      >
+                        {profile.phone}
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-amber-400">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="text-xs mono uppercase tracking-widest text-zinc-500">
+                        Location
+                      </div>
+                      <div className="text-zinc-100">{profile.address}</div>
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={profile.social.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      aria-label="GitHub"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={profile.social.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={profile.social.twitter}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center text-zinc-300 hover:text-amber-300 hover:border-amber-400/40 transition-colors"
+                      aria-label="Twitter"
+                    >
+                      <Twitter className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  <a
+                    href={profile.resumeUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    download
+                  >
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-amber-400/40 bg-amber-400/5 text-amber-300 hover:bg-amber-400 hover:text-zinc-950"
+                    >
+                      <Download className="w-4 h-4 mr-2" />
+                      Résumé
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <form
+            onSubmit={onSubmit}
+            className="lg:col-span-7 reveal p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] space-y-5"
+          >
+            <div className="grid md:grid-cols-2 gap-5">
+              <div>
+                <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
+                  Your name
+                </label>
+                <Input
+                  value={form.name}
+                  onChange={handle("name")}
+                  placeholder="Jane Doe"
+                  className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100 h-11"
+                />
+              </div>
+              <div>
+                <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  value={form.email}
+                  onChange={handle("email")}
+                  placeholder="jane@company.com"
+                  className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100 h-11"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
+                Project / message
+              </label>
+              <Textarea
+                value={form.message}
+                onChange={handle("message")}
+                placeholder="Tell me a little about what you’re building…"
+                rows={6}
+                className="mt-2 bg-[#0f0f11] border-white/10 focus-visible:ring-amber-400/30 text-zinc-100"
+              />
+            </div>
+
+            <div className="flex items-center justify-between pt-2">
+              <span className="mono text-[11px] uppercase tracking-widest text-zinc-500">
+                Avg. reply time · 24h
+              </span>
+              <Button
+                type="submit"
+                disabled={sending}
+                className="bg-amber-400 hover:bg-amber-300 text-zinc-950 font-semibold h-11 px-6 rounded-full"
+              >
+                <Send className="w-4 h-4 mr-2" />
+                {sending ? "Sending…" : "Send message"}
+              </Button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
