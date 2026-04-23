@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "sonner";
+import { api, fireAndForget } from "../lib/api";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -12,23 +13,25 @@ const Contact = () => {
 
   const handle = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in every field before sending.");
       return;
     }
     setSending(true);
-    // Frontend-only: persist in localStorage as a teaser for backend wiring.
-    setTimeout(() => {
-      const store = JSON.parse(localStorage.getItem("messages") || "[]");
-      store.push({ ...form, at: new Date().toISOString() });
-      localStorage.setItem("messages", JSON.stringify(store));
-      setSending(false);
+    try {
+      await api.submitMessage(form);
       setForm({ name: "", email: "", message: "" });
-      toast.success("Message saved. I’ll get back to you soon!");
-    }, 650);
+      toast.success("Message sent. I’ll get back to you soon!");
+    } catch (err) {
+      toast.error(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
+
+  const onResumeClick = () => fireAndForget(() => api.bumpResumeDownload());
 
   return (
     <section id="contact" className="relative py-24 md:py-32">
@@ -136,6 +139,7 @@ const Contact = () => {
                     target="_blank"
                     rel="noreferrer"
                     download
+                    onClick={onResumeClick}
                   >
                     <Button
                       size="sm"

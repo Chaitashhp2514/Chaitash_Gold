@@ -1,9 +1,12 @@
 import { ArrowUp, Heart, Download } from "lucide-react";
 import { profile, navLinks } from "../mock/mock";
+import { api, fireAndForget } from "../lib/api";
 
 const Footer = () => {
   const scrollTop = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const onResumeClick = () => fireAndForget(() => api.bumpResumeDownload());
 
   return (
     <footer className="relative border-t border-white/5 bg-[#04060b]">
@@ -59,6 +62,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
               download
+              onClick={onResumeClick}
               className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-cyan-200 neon-link"
             >
               <Download className="w-4 h-4" />

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { profile, navLinks } from "../mock/mock";
 import { Button } from "./ui/button";
+import { api, fireAndForget } from "../lib/api";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("home");
+
+  const onResumeClick = () => fireAndForget(() => api.bumpResumeDownload());
 
   useEffect(() => {
     const onScroll = () => {
@@ -78,7 +81,7 @@ const Navbar = () => {
           </ul>
 
           <div className="hidden md:flex items-center gap-3">
-            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
+            <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download onClick={onResumeClick}>
               <Button
                 size="sm"
                 className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium"
@@ -119,7 +122,7 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="mt-2">
-                <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
+                <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download onClick={onResumeClick}>
                   <Button className="w-full bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium">
                     <Download className="w-4 h-4 mr-2" />
                     Download Résumé

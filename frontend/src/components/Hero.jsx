@@ -1,10 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, Download, Mail, MapPin, Github, Linkedin } from "lucide-react";
-import { profile, stats, toolbelt } from "../mock/mock";
+import { profile, stats as mockStats, toolbelt } from "../mock/mock";
 import { Button } from "./ui/button";
+import { api, fireAndForget } from "../lib/api";
 
 const Hero = () => {
   const photoRef = useRef(null);
+  const [liveStats, setLiveStats] = useState(null);
 
   useEffect(() => {
     const onMove = (e) => {
@@ -20,6 +22,50 @@ const Hero = () => {
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    const fetchStats = () =>
+      api
+        .getStats()
+        .then((s) => !cancelled && setLiveStats(s))
+        .catch(() => {});
+    fetchStats();
+    const t = setInterval(fetchStats, 20000);
+    return () => {
+      cancelled = true;
+      clearInterval(t);
+    };
+  }, []);
+
+  const onResumeClick = () => fireAndForget(() => api.bumpResumeDownload());
+
+  // Merge live stats into the first stat card ("Years coding" replaced with Visitors if available)
+  const renderStats = () => {
+    const visits = liveStats?.visits;
+    const downloads = liveStats?.downloads;
+    const cards = [
+      visits != null
+        ? { label: "Live visitors", value: String(visits) }
+        : mockStats[0],
+      mockStats[1],
+      mockStats[2],
+      downloads != null
+        ? { label: "Resume downloads", value: String(downloads) }
+        : mockStats[3],
+    ];
+    return cards.map((s) => (
+      <div
+        key={s.label}
+        className="rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3"
+      >
+        <div className="text-2xl font-semibold text-zinc-50">{s.value}</div>
+        <div className="mono text-[11px] uppercase tracking-widest text-zinc-500 mt-1">
+          {s.label}
+        </div>
+      </div>
+    ));
+  };
 
   const scrollToAbout = () => {
     const el = document.getElementById("about");
@@ -76,7 +122,7 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download>
+              <a href={profile.resumeUrl} target="_blank" rel="noreferrer" download onClick={onResumeClick}>
                 <Button
                   size="lg"
                   className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold h-12 px-6 rounded-full"
@@ -125,19 +171,7 @@ const Hero = () => {
 
             {/* Stats */}
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl">
-              {stats.map((s) => (
-                <div
-                  key={s.label}
-                  className="rounded-xl border border-white/5 bg-white/[0.02] px-4 py-3"
-                >
-                  <div className="text-2xl font-semibold text-zinc-50">
-                    {s.value}
-                  </div>
-                  <div className="mono text-[11px] uppercase tracking-widest text-zinc-500 mt-1">
-                    {s.label}
-                  </div>
-                </div>
-              ))}
+              {renderStats()}
             </div>
           </div>
 

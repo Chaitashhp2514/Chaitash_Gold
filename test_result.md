@@ -101,3 +101,127 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+user_problem_statement: "Full-stack portfolio for Chaitash Patel. Need backend API for contact form persistence, visitor counter, and resume-download counter. Frontend already wired to use /api/* endpoints via src/lib/api.js. Will also be packaged for Vercel deployment with Node serverless equivalents."
+
+backend:
+  - task: "POST /api/contact — create a contact message"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Validates name/email/message with Pydantic + EmailStr. Stores uuid id, sanitized fields, created_at (UTC). Returns {id, ok:true, created_at}."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Valid POST requests return 200 with {id, ok:true, created_at}. Invalid requests (empty name, invalid email, missing message, missing fields) correctly return 422 with detailed validation errors. Pydantic validation working perfectly."
+
+  - task: "GET /api/contact — list messages (newest first)"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Returns up to 500 most recent messages, sorted by created_at desc. No auth (MVP)."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Returns array of messages sorted newest first. Verified with 3 test messages - all returned in correct chronological order with proper fields (id, name, email, message, created_at)."
+
+  - task: "POST /api/stats/visit — increment visit counter"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Upserts global stats doc, increments 'visits', returns {visits}."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Three consecutive calls returned incrementing visit counts (2→3→4). Each call returns {visits: N} where N increases by 1. Counter persistence working correctly."
+
+  - task: "POST /api/stats/resume-download — increment downloads"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Upserts stats doc, increments 'downloads', returns {downloads}."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Three consecutive calls returned incrementing download counts (1→2→3). Each call returns {downloads: N} where N increases by 1. Counter persistence working correctly."
+
+  - task: "GET /api/stats — read aggregate counters"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Returns {visits, downloads, messages} where messages is count of messages collection."
+      - working: true
+        agent: "testing"
+        comment: "✅ TESTED: Returns {visits: 4, downloads: 3, messages: 3}. All counters match expected values from previous tests. Messages count correctly reflects total messages in database."
+
+frontend:
+  - task: "Contact form posts to real backend"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Contact.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Removed localStorage; now calls api.submitMessage."
+
+  - task: "Hero shows live visitor / downloads counts"
+    implemented: true
+    working: "NA"
+    file: "frontend/src/components/Hero.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Polls GET /api/stats every 20s; replaces first + last stat cards with live numbers when available."
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+
+test_plan:
+  current_focus:
+    - "POST /api/contact — create a contact message"
+    - "GET /api/contact — list messages (newest first)"
+    - "POST /api/stats/visit — increment visit counter"
+    - "POST /api/stats/resume-download — increment downloads"
+    - "GET /api/stats — read aggregate counters"
+  stuck_tasks: []
+  test_all: true
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Added 5 new endpoints under /api. Please verify: (1) POST /api/contact with valid body returns 200 + id; (2) invalid email or empty fields returns 422; (3) POST /api/stats/visit and /api/stats/resume-download each return updated counter, and successive calls keep incrementing; (4) GET /api/stats returns aggregates where messages == actual posted count; (5) GET /api/contact returns posted messages newest first."
+  - agent: "testing"
+    message: "✅ BACKEND TESTING COMPLETE: All 5 API endpoints tested successfully. Contact form validation working (422 for invalid data), counters incrementing properly, message sorting correct, and aggregate stats accurate. Created comprehensive backend_test.py with real-world test data. All 7 test scenarios passed - backend APIs are fully functional."

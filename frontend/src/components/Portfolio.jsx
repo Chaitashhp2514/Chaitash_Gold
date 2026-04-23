@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Experience from "./Experience";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import { api, fireAndForget } from "../lib/api";
 
 const Portfolio = () => {
   // Reveal-on-scroll for elements with `.reveal`
@@ -25,6 +26,18 @@ const Portfolio = () => {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
+  }, []);
+
+  // Bump visit counter once per browser session (fire-and-forget).
+  useEffect(() => {
+    try {
+      if (sessionStorage.getItem("visit-bumped")) return;
+      sessionStorage.setItem("visit-bumped", "1");
+      fireAndForget(() => api.bumpVisit());
+    } catch {
+      /* storage disabled — still try once */
+      fireAndForget(() => api.bumpVisit());
+    }
   }, []);
 
   return (
