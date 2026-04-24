@@ -66,7 +66,7 @@ const Footer = () => {
               className="mt-4 inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-cyan-200 neon-link"
             >
               <Download className="w-4 h-4" />
-              Download résumé (PDF)
+              Download resume (PDF)
             </a>
           
           </div>
