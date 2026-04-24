@@ -16,7 +16,7 @@ export const profile = {
   photo:
     "https://customer-assets.emergentagent.com/job_3f6869bd-0c6a-42b8-9518-33c180f9756e/artifacts/z9nglz3c_IMG_6042.PNG",
   resumeUrl:
-    "https://customer-assets.emergentagent.com/job_3f6869bd-0c6a-42b8-9518-33c180f9756e/artifacts/pqyfs7yj_Chaitash_Resume.pdf",
+    "https://drive.google.com/file/d/1qa3xFDgxEK9xmhXwblXN-f0U_Q8CUwQF/view?usp=sharing",
   social: {
     linkedin: "https://linkedin.com/in/chaitash-patel-3717501a0",
     github: "https://github.com/chaitashhp2514",
