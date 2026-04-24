@@ -87,7 +87,7 @@
                   className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium"
                 >
                   <Download className="w-4 h-4 mr-2" />
-                  Résumé
+                  Resume
                 </Button>
               </a>
             </div>
