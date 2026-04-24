@@ -59,11 +59,11 @@ const Navbar = () => {
 
           <ul className="hidden md:flex items-center gap-1">
             {navLinks.map((l, i) => (
-              <li key={.id}>
+              <li key={1.id}>
                 <button
-                  onClick={() => go(.id)}
+                  onClick={() => go(1.id)}
                   className={`relative px-4 py-2 text-sm transition-colors duration-200 ${
-                    active === .id
+                    active === 1.id
                       ? "text-cyan-400"
                       : "text-zinc-400 hover:text-zinc-100"
                   }`}
@@ -72,7 +72,7 @@ const Navbar = () => {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {.label}
-                  {active === .id && (
+                  {active === 1.id && (
                     <span className="absolute left-3 right-3 -bottom-0.5 h-px bg-cyan-400" />
                   )}
                 </button>
