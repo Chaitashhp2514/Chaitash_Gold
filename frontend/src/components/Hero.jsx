@@ -195,7 +195,7 @@ const Hero = () => {
                   <div className="mono text-[11px] tracking-widest uppercase text-zinc-300/90">
                     {profile.firstName} · {new Date().getFullYear()}
                   </div>
-                  <div className="mono text-[11px] text-cyan-300">v1.0</div>
+                  
                 </div>
               </div>
 
@@ -238,17 +238,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <button
-        onClick={scrollToAbout}
-        className="absolute left-1/2 -translate-x-1/2 bottom-6 hidden md:flex items-center gap-2 text-zinc-500 hover:text-cyan-400 transition-colors"
-        aria-label="Scroll to about section"
-      >
-        <span className="mono text-[11px] uppercase tracking-widest">
-          Scroll
-        </span>
-        <ArrowDown className="w-4 h-4 animate-bounce" />
-      </button>
+    
     </section>
   );
 };
