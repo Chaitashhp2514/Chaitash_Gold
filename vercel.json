@@ -1,0 +1,23 @@
+{
+  "buildCommand": "cd frontend && npm install --legacy-peer-deps && npm install ajv@^8 --legacy-peer-deps && node_modules/.bin/craco build",
+  "outputDirectory": "frontend/build",
+  "functions": {
+    "api/index.py": {
+      "runtime": "python3.12",
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/index.py"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
