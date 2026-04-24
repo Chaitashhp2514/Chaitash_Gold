@@ -18,19 +18,19 @@ export const profile = {
   resumeUrl:
     "https://customer-assets.emergentagent.com/job_3f6869bd-0c6a-42b8-9518-33c180f9756e/artifacts/pqyfs7yj_Chaitash_Resume.pdf",
   social: {
-    linkedin: "https://www.linkedin.com/",
-    github: "https://github.com/",
-    twitter: "https://twitter.com/"
+    linkedin: "https://linkedin.com/in/chaitash-patel-3717501a0",
+    github: "https://github.com/chaitashhp2514",
+    email: "mailto:chaitash.work@gmail.com"
   },
   availability: "Open to work",
   yearsOfLearning: 6
 };
 
 export const stats = [
-  { label: "Years coding", value: "6+" },
-  { label: "Projects built", value: "12" },
-  { label: "Technologies", value: "20+" },
-  { label: "Diploma CGPA", value: "9.19" }
+  { label: "Years coding", value: "4+" },
+  { label: "Projects built", value: "4" },
+  { label: "Technologies", value: "10+" },
+  { label: "Languages Spoken", value: "3" }
 ];
 
 export const skillGroups = [
