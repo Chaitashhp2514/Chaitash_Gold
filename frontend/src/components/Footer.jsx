@@ -68,22 +68,13 @@ const Footer = () => {
               <Download className="w-4 h-4" />
               Download résumé (PDF)
             </a>
-            <a
-              href="/chaitash-portfolio.zip"
-              download
-              className="mt-2 inline-flex items-center gap-2 text-xs mono tracking-widest uppercase text-zinc-500 hover:text-cyan-300 transition-colors"
-            >
-              <Download className="w-3.5 h-3.5" />
-              Source code (.zip)
-            </a>
+          
           </div>
         </div>
 
         <div className="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="mono text-xs text-zinc-500">
-            © {new Date().getFullYear()} {profile.name}. Built with
-            <Heart className="inline w-3 h-3 mx-1 text-cyan-400" />
-            and a lot of coffee.
+            © {new Date().getFullYear()} {profile.name}. 
           </div>
           <button
             onClick={scrollTop}
