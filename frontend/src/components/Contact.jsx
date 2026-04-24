@@ -147,7 +147,7 @@ const Contact = () => {
                       className="border-cyan-400/40 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400 hover:text-zinc-950"
                     >
                       <Download className="w-4 h-4 mr-2" />
-                      Résumé
+                      Resume
                     </Button>
                   </a>
                 </div>
