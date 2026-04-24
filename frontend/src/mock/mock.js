@@ -14,7 +14,7 @@ export const profile = {
   phone: "+91 70692 91955",
   address: "34, Rajhans Society, Opp. Rutu Ice-cream, Nr. APC, Anand",
   photo:
-    "https://customer-assets.emergentagent.com/job_3f6869bd-0c6a-42b8-9518-33c180f9756e/artifacts/z9nglz3c_IMG_6042.PNG",
+    "https://drive.google.com/file/d/1jX8QFvhfvkOv2IjWegU6mQhEcsj3M_GV/view?usp=sharing",
   resumeUrl:
     "https://drive.google.com/file/d/1qa3xFDgxEK9xmhXwblXN-f0U_Q8CUwQF/view?usp=sharing",
   social: {
