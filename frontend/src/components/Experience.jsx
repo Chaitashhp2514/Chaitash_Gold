@@ -101,7 +101,7 @@ const Experience = () => {
                     </div>
                     <span
                       className={`mono text-[11px] uppercase tracking-widest px-2 py-1 rounded-full border ${
-                        ed.status === "Pursuing"
+                        ed.status === "Completed"
                           ? "border-cyan-400/40 text-cyan-300 bg-cyan-400/5"
                           : "border-white/10 text-zinc-400 bg-white/[0.02]"
                       }`}
