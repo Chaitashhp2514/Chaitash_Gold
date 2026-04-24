@@ -128,7 +128,7 @@ const Hero = () => {
                   className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold h-12 px-6 rounded-full"
                 >
                   <Download className="w-4 h-4 mr-2" />
-                  Download Résumé
+                  Download Resume
                 </Button>
               </a>
               <a href={`mailto:${profile.email}`}>
