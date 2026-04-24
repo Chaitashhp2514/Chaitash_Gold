@@ -185,7 +185,7 @@ export const education = [
     sub: "Charutar Vidhya Mandal University",
     period: "2022 \u2013 2025",
     score: "CGPA 6.86 / 10",
-    status: "Pursuing"
+    status: "Completed"
   },
   {
     degree: "Diploma in Computer Engineering",
