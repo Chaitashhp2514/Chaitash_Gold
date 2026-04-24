@@ -155,63 +155,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Form */}
-          <form
-            onSubmit={onSubmit}
-            className="lg:col-span-7 reveal p-6 md:p-8 rounded-3xl border border-white/5 bg-white/[0.02] space-y-5"
-          >
-            <div className="grid md:grid-cols-2 gap-5">
-              <div>
-                <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
-                  Your name
-                </label>
-                <Input
-                  value={form.name}
-                  onChange={handle("name")}
-                  placeholder="Jane Doe"
-                  className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100 h-11"
-                />
-              </div>
-              <div>
-                <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
-                  Email
-                </label>
-                <Input
-                  type="email"
-                  value={form.email}
-                  onChange={handle("email")}
-                  placeholder="jane@company.com"
-                  className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100 h-11"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="mono text-[11px] uppercase tracking-widest text-zinc-500">
-                Project / message
-              </label>
-              <Textarea
-                value={form.message}
-                onChange={handle("message")}
-                placeholder="Tell me a little about what you’re building…"
-                rows={6}
-                className="mt-2 bg-[#0a0f17] border-white/10 focus-visible:ring-cyan-400/30 text-zinc-100"
-              />
-            </div>
-
-            <div className="flex items-center justify-between pt-2">
-              <span className="mono text-[11px] uppercase tracking-widest text-zinc-500">
-                Avg. reply time · 24h
-              </span>
-              <Button
-                type="submit"
-                disabled={sending}
-                className="bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-semibold h-11 px-6 rounded-full"
-              >
-                <Send className="w-4 h-4 mr-2" />
-                {sending ? "Sending…" : "Send message"}
-              </Button>
-            </div>
-          </form>
+        
         </div>
       </div>
     </section>
