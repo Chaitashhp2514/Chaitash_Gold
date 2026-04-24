@@ -14,7 +14,7 @@ export const profile = {
   phone: "+91 70692 91955",
   address: "34, Rajhans Society, Opp. Rutu Ice-cream, Nr. APC, Anand",
   photo:
-    "https://i.ibb.co/HL3xwh38/IMG-5191.png",
+    "https://i.ibb.co/RGWQ7Z77/IMG-5132.png",
   resumeUrl:
     "https://drive.google.com/file/d/1qa3xFDgxEK9xmhXwblXN-f0U_Q8CUwQF/view?usp=sharing",
   social: {
