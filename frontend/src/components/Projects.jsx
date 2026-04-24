@@ -125,19 +125,18 @@ const Projects = () => {
 
                 <div className="mt-8 flex items-center gap-3">
                   <button
-                    onClick={() => alert("Project link coming soon.")}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-zinc-950 text-sm font-medium transition-colors"
-                  >
+  onClick={() =>
+    window.open(
+      "https://drive.google.com/file/d/1abY37ZSWGuouyyK3lNPPPapKeNXePw-Y/view?usp=sharing",
+      "_blank"
+    )
+  }
+  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-zinc-950 text-sm font-medium transition-colors"
+>
                     <ExternalLink className="w-4 h-4" />
-                    Live demo
+                   Demo Video
                   </button>
-                  <button
-                    onClick={() => alert("Source link coming soon.")}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] text-zinc-200 text-sm transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    Source
-                  </button>
+                 
                   <span className="ml-auto mono text-[11px] uppercase tracking-widest text-zinc-500">
                     Role: {current.role}
                   </span>
