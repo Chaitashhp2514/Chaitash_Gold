@@ -151,13 +151,7 @@ const Contact = () => {
                     </Button>
                   </a>
                 </div>
-                <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="d9f0d141-ee59-433a-a069-7f4106245b05">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit Form</button>
-</form>
+            
               </div>
             </div>
           </div>
