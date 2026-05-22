@@ -19,13 +19,37 @@ const Contact = () => {
       toast.error("Please fill in every field before sending.");
       return;
     }
+    
     setSending(true);
+
+    // Build the payload with the access key from Code: 1
+    const payload = {
+      access_key: "d9f0d141-ee59-433a-a069-7f4106245b05",
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    };
+
     try {
-      await api.submitMessage(form);
-      setForm({ name: "", email: "", message: "" });
-      toast.success("Message sent. I’ll get back to you soon!");
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setForm({ name: "", email: "", message: "" });
+        toast.success("Message sent. I’ll get back to you soon!");
+      } else {
+        toast.error(result.message || "Submission failed. Please try again.");
+      }
     } catch (err) {
-      toast.error(err.message || "Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please check your network connection.");
     } finally {
       setSending(false);
     }
@@ -83,7 +107,7 @@ const Contact = () => {
                         Phone
                       </div>
                       <a
-                        href={`tel:${profile.phone.replace(/\s/g, "")}`}
+                        href={`tel:${profile.phone.replace(/\s+/g, "")}`}
                         className="text-zinc-100 hover:text-cyan-300"
                       >
                         {profile.phone}
@@ -151,12 +175,68 @@ const Contact = () => {
                     </Button>
                   </a>
                 </div>
-            
               </div>
             </div>
           </div>
 
-        
+          {/* Form UI */}
+          <div className="lg:col-span-7 reveal">
+            <form onSubmit={onSubmit} className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-xs mono uppercase tracking-widest text-zinc-500 mb-2">
+                    Name
+                  </label>
+                  <Input
+                    type="text"
+                    value={form.name}
+                    onChange={handle("name")}
+                    placeholder="Ada Lovelace"
+                    className="bg-white/[0.02] border-white/10 focus:border-cyan-400 text-zinc-100"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs mono uppercase tracking-widest text-zinc-500 mb-2">
+                    Email
+                  </label>
+                  <Input
+                    type="email"
+                    value={form.email}
+                    onChange={handle("email")}
+                    placeholder="you@domain.com"
+                    className="bg-white/[0.02] border-white/10 focus:border-cyan-400 text-zinc-100"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs mono uppercase tracking-widest text-zinc-500 mb-2">
+                  Message
+                </label>
+                <Textarea
+                  rows={6}
+                  value={form.message}
+                  onChange={handle("message")}
+                  placeholder="Tell me about your project, brief, or wild idea..."
+                  className="bg-white/[0.02] border-white/10 focus:border-cyan-400 text-zinc-100 resize-none"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={sending}
+                className="w-full sm:w-auto min-w-[140px] bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-medium"
+              >
+                {sending ? (
+                  "Transmitting..."
+                ) : (
+                  <>
+                    Transmit <Send className="w-4 h-4 ml-2" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
